@@ -5,7 +5,7 @@
 /* Step 2 - Variables */
 const fullName = "Samuel Dee Gardner";
 let currentYear = new Date().getFullYear();
-let profilePicture = "images/me.png";
+let profilePicture = "images/me-2.jpg";
 
 /* Step 3 - Element Variables */
 const nameElement = document.getElementById("name");
