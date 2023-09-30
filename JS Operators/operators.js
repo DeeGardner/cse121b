@@ -46,3 +46,6 @@ function encounter() {
     }
   }
 }
+
+let names = ['Nancy','Blessing','Jorge','Svetlana','Bob'];
+Filtered = names.filter()
