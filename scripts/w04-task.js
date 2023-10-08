@@ -2,7 +2,7 @@
 
 /* Profile Object  */
 let myProfile = {
-    name: "Samule Dee Gardner",
+    name: "Samuel Dee Gardner",
     photo: "images/me2.png",
     favoriteFoods: ["Apple Pie", "Chicken Wings", "Tacos", "Pizza", "Triscuits"],
     hobbies: ["Film Photography", "Drawing", "Photoshop", "Writing", "Coding"],
