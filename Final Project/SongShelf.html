@@ -3,45 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <title>SongShelf</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
 </head>
 <body>
+    <div>
+        <a href="#search" id="searchTab">Search</a>
+        <a href="#bookshelf" id="bookshelfTab">Bookshelf</a>
+    </div>
+
     <header>
         <h1>SongShelf</h1>
     </header>
 
-    <!-- Search Bar -->
+    <div id="search">
+        <section>
+            <input type="text" id="searchInput" placeholder="Search by artist...">
+            <button id="searchButton">Search</button>
+        </section>
+    
+        <section id="results">
+        </section>
+    </div>
+
+    <div id="filterSection">
+        <label for="filterName">Filter albums by name: </label>
+        <input type="text" id="filterName" placeholder="Enter keyword or phrase">
+        <button id="filterButton">Filter</button>
+        <button id="clearFilterButton">Clear Filter</button>
+    </div>
+
+    <div id="bookshelf">
+        <section id="shelfContainer"> 
+            <button id="editButton">Edit</button> 
+            <section id="shelf">
+                <h2 id="shelfTitle">Your Shelf</h2>
+            </section>
+        </section>        
+    </div>
+
     <section>
-        <input type="text" id="searchInput" placeholder="Search for songs or albums...">
-        <button id="searchButton">Search</button>
-    </section>
-
-    <!-- Results Display Area -->
-    <section id="results">
-        <!-- Results from the API will be populated here -->
-    </section>
-
-    <!-- User's Shelf -->
-    <section id="shelf">
-        <h2>Your Shelf</h2>
-        <!-- Albums/Songs added by the user will be populated here -->
-    </section>
-
-    <!-- Form to Manually Add Albums/Songs -->
-    <section>
-        <h2>Add to Your Shelf Manually</h2>
+        <h2>Add Album to Your Shelf Manually</h2>
         <form id="manualAddForm">
             <label for="albumName">Album Name:</label>
             <input type="text" id="albumName" required>
             
-            <label for="songName">Song Name:</label>
-            <input type="text" id="songName">
+            <label for="releaseYear">Release Year:</label>
+            <input type="number" id="releaseYear" min="1900" max="2100" required>
             
             <button type="submit">Add to Shelf</button>
         </form>
     </section>
 
     <script type="module" src="SongShelf.js"></script>
+    <script>
+        document.getElementById('searchTab').addEventListener('click', function() {
+            document.getElementById('search').style.display = 'block';
+            document.getElementById('bookshelf').style.display = 'none';
+            document.getElementById('filterSection').style.display = 'none'; 
+        });
+
+        document.getElementById('bookshelfTab').addEventListener('click', function() {
+            document.getElementById('search').style.display = 'none';
+            document.getElementById('bookshelf').style.display = 'block';
+            document.getElementById('filterSection').style.display = 'block';
+        });
+    </script>
 
 </body>
 </html>
